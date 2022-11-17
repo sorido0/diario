@@ -1,15 +1,18 @@
-import { MailLock } from "@mui/icons-material"
-import { Typography } from "@mui/material"
 
 
-
+import { BotonFlotante } from '../components';
+import { NadaSelecionado, VerNota } from '../views';
+import { DiarioLayout } from './../layout/DiarioLayout';
 
 export const DiarioPages = () => {
-  return (
-    <>
-        <Typography variant="h4"> Diario  Pages </Typography> 
-       
-        
-    </>
-  )
+    return (
+        <DiarioLayout>
+           {/* <NadaSelecionado/> */}
+
+
+           <VerNota/>
+
+           <BotonFlotante />
+        </DiarioLayout>
+    )
 }
