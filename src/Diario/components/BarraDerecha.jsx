@@ -1,5 +1,6 @@
 import { TurnedInNot } from "@mui/icons-material"
 import { Grid, Drawer, Box, Toolbar, Typography, Divider, ListItem, ListItemText, List, ListItemButton, ListItemIcon } from "@mui/material"
+import { useDispatch, useSelector } from "react-redux";
 
 
 
@@ -9,6 +10,13 @@ const usuario = {
 }
 
 export const BarraDerecha = ({ drowerWidth }) => {
+
+
+    const { displayName } = useSelector( state => state.auth );
+    const dispatch = useDispatch();
+
+
+
   return (
     
         <Box 
@@ -34,7 +42,7 @@ export const BarraDerecha = ({ drowerWidth }) => {
 
                 <Toolbar>
 
-                    <Typography variant="h6" noWrap component="div"> {usuario.nombre} {usuario.apellido} </Typography>
+                    <Typography variant="h6" noWrap component="div"> { displayName } </Typography>
 
                 </Toolbar>
 
@@ -42,7 +50,7 @@ export const BarraDerecha = ({ drowerWidth }) => {
 
                 <List>
                     {
-                        ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"].map( text => (
+                        [ "Enero", "Febrero", "Marzo", "Abril" ].map( text => (
                             <ListItem key={text} disablePadding>
                                 <ListItemButton>
                                     <ListItemIcon>

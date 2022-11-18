@@ -1,11 +1,15 @@
-import { Link as RLink } from "react-router-dom"
-import { Link } from "react-router-dom"
-
 import { AppBar, IconButton, Toolbar, Grid, Typography } from '@mui/material';
 import { MenuOutlined, LogoutOutlined } from '@mui/icons-material';
+import { useDispatch } from 'react-redux';
+import { cerrarSession, logout } from "../../store/auth";
 
 
 export const NavBar = ( { drowerWidth} ) => {
+
+     const dispatch = useDispatch();
+
+   
+
   return (
    
     <AppBar position="fixed" sx={{ 
@@ -27,12 +31,15 @@ export const NavBar = ( { drowerWidth} ) => {
             container direction='row' justifyContent="space-between" alignItems="center">
                 <Typography variant='h6' noWrap component="div"> Diario </Typography> 
 
-                <IconButton color='error'>
+                <IconButton 
+                    color='error'
+                    onClick={ () => dispatch( cerrarSession() ) }
+                    >
 
-                <Link compenent={RLink} color="inherit" to="/auth/login">
+                {/* <Link compenent={RLink} color="inherit" to="/auth/login"> */}
                     
-                    <LogoutOutlined/>
-                    </Link>
+                    <LogoutOutlined />
+                    {/* </Link> */}
                 </IconButton>
 
             </Grid>
