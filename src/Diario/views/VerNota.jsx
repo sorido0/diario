@@ -76,9 +76,9 @@ export const VerNota = () => {
 
     }
 
-    const handleDeleteNota = (  ) => {
-        console.log(NotaActiva.id);
-        dispatch( borrarNota( NotaActiva.id ) );
+    const handleDeleteNota = () => {
+       
+        dispatch( borrarNota() );
     }
 
 

@@ -79,6 +79,10 @@ export const elDiarioSlice = createSlice({
         elminarNotaPorId: (state, action) => {
             console.log("estube aqui")
             state.nota = state.nota.filter(nota => nota.id !== action.payload)
+            // state.seGuardo = false;
+            // state.mensajeGuardaro = '';
+            // state.nota = [];
+            state.NotaActiva = null;
         },
     }
 

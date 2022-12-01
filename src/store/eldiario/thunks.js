@@ -1,4 +1,5 @@
-import { collection, doc, setDoc, getDocs } from "firebase/firestore/lite"
+import { async } from "@firebase/util";
+import { collection, doc, setDoc, getDocs, deleteDoc } from "firebase/firestore/lite"
 import { subirArchivos } from "../../helpers";
 import { DiarioDB } from './../../firebase/config';
 import { actulizarNota, anadirNuevaNotaBasia, notaObtenida, obtenerNotaActiva, seEstaGuardando, agregarImagen, elminarNotaPorId } from "./elDiarioSlice";
@@ -115,20 +116,20 @@ export const subirImagen = ( file = [] ) => {
 }
 
 // borrar nota de firebase
-export const borrarNota = ( id ) => {
-    return async (dispatch, getState) => {
+export const borrarNota = () => {
+    return  async (dispatch, getState) => {
         // Este es el id del usuario
         const { uid } = getState().auth;
 
+        const { id } = getState().elDiario.NotaActiva;
+
         // Este es el id de la nota
-        const notaRef = doc(collection(DiarioDB, `${uid}/diario/notas`), id);
+        const notaRef = doc( DiarioDB, `${uid}/diario/notas/${id}`);
 
         // Borrar la nota
-       const reso =  await setDoc(notaRef, {borrado: true}, {merge: true});
+        await deleteDoc( notaRef );
 
-         console.log(notaRef)
-
-        dispatch( elminarNotaPorId() )
+         dispatch( elminarNotaPorId(id) )
     }
 }
 
