@@ -1,6 +1,7 @@
 import { login, logout, verificandoCredentials } from "./authSlice";
 import { entreConGoogle, loginConCorreoYContrasena, registarConCorreoYContrasena } from './../../firebase/providerAuth';
 import { DiarioAuth } from "../../firebase/config";
+import { limpiarElDiario } from "../eldiario";
 
 
 
@@ -79,7 +80,9 @@ export const cerrarSession = () => {
 
         await DiarioAuth.signOut();
        
+        dispatch( limpiarElDiario() );
         dispatch(logout({}));
+
 
     }
 

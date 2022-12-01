@@ -13,6 +13,12 @@ export const useForms = (valoresIniciales = {}, validarFormularios = {} ) => {
     
     }, [Forms]); 
 
+    useEffect(() => {
+    
+        setForms( valoresIniciales );
+    
+    }, [valoresIniciales]); 
+
     const datosValidos = useMemo(( ) => {
        
         for ( const formField of Object.keys( validarFormulario ) ) {

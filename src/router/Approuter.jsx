@@ -18,7 +18,7 @@ export const Approuter = () => {
     return <VerificarLogin />
   }
 
-  console.log(status)
+  //console.log(status)
 
   return (
     

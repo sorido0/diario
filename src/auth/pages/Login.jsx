@@ -13,6 +13,10 @@ import { varificarAutenticacion, loginGoogleOk, inicioSession } from "./../../st
 import { useForms } from './../../hooks';
 
 
+const estadoInicial = {
+  email: '',
+  password: ''
+}
 
 
 export const Login = () => {
@@ -22,10 +26,6 @@ export const Login = () => {
   
   const dispatch = useDispatch();
 
-  const estadoInicial = {
-    email: 'sdfssd',
-    password: 'fsfsdfsd'
-  }
 
 
   const { Forms, email, password, handleInput } = useForms(estadoInicial);

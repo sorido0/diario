@@ -2,6 +2,7 @@
 
 import { configureStore } from "@reduxjs/toolkit";
 import { authSlice } from './auth';
+import { elDiarioSlice } from "./eldiario";
 
 export const store = configureStore({
     reducer: {
@@ -9,6 +10,7 @@ export const store = configureStore({
 
 
         auth:  authSlice.reducer,
+        elDiario: elDiarioSlice.reducer,
 
 
 

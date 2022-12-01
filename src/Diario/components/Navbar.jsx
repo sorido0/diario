@@ -1,7 +1,7 @@
 import { AppBar, IconButton, Toolbar, Grid, Typography } from '@mui/material';
 import { MenuOutlined, LogoutOutlined } from '@mui/icons-material';
 import { useDispatch } from 'react-redux';
-import { cerrarSession, logout } from "../../store/auth";
+import { cerrarSession } from "../../store/auth";
 
 
 export const NavBar = ( { drowerWidth} ) => {
