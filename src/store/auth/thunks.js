@@ -21,7 +21,7 @@ export const loginGoogleOk = (email, password, status) => {
 
         dispatch(verificandoCredentials());
 
-        console.log('loginGoogleOk');
+       // console.log('loginGoogleOk');
         const resultado = await entreConGoogle();
 
         if (resultado.ok) {
@@ -30,7 +30,7 @@ export const loginGoogleOk = (email, password, status) => {
             dispatch(logout(resultado));
         }
 
-        console.log(resultado);
+        //console.log(resultado);
 
     }
 
@@ -45,7 +45,7 @@ export const inicioCreacionCuenta = ({ email, password, nombre }) => {
         const { ok, uid, photoURL, errorMensaje, ecode } = await registarConCorreoYContrasena({ email, password, nombre });
         //const reslt = await registarConCorreoYContrasena( {email, password, nombre} );
 
-        //console.log(reslt);
+       // console.log({ ok, uid, photoURL, errorMensaje, ecode });
 
         if (!ok) return dispatch(logout({ errorMensaje, ecode }));
 

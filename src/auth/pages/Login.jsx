@@ -30,6 +30,8 @@ export const Login = () => {
 
   const { Forms, email, password, handleInput } = useForms(estadoInicial);
 
+  console.log( { email } );
+
   const verificandoMemo = useMemo( () => status === "verificando-login" , [ status])
   
   
@@ -38,10 +40,15 @@ export const Login = () => {
     e.preventDefault();
     dispatch(varificarAutenticacion());
     dispatch( inicioSession( Forms ) );
-    console.log( { Forms } );
+
+    console.log(Forms);
+  
   }
 
   const onGoogleSumit = () => {
+
+    
+    
     dispatch(loginGoogleOk())
   }
 
@@ -114,6 +121,7 @@ export const Login = () => {
                   variant="contained" 
                   fullWidth
                   onClick={onGoogleSumit}
+                  aria-label="btnGoogle"
                 >
                   <Google />
                   <Typography sx={{ ml: 1 }}> Google </Typography>

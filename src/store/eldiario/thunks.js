@@ -1,4 +1,4 @@
-import { async } from "@firebase/util";
+
 import { collection, doc, setDoc, getDocs, deleteDoc } from "firebase/firestore/lite"
 import { subirArchivos } from "../../helpers";
 import { DiarioDB } from './../../firebase/config';
@@ -9,6 +9,7 @@ import { actulizarNota, anadirNuevaNotaBasia, notaObtenida, obtenerNotaActiva, s
 export const iniciarNuevaNota = () => {
 
     return async (dispatch, getState) => {
+        
         const { uid } = getState().auth;
         dispatch(seEstaGuardando())
 

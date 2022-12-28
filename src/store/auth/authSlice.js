@@ -28,8 +28,8 @@ export const authSlice = createSlice({
             state.email = null
             state.displayName = null
             state.photoURL = null
-            state.errorMensaje = payload?.errorMensaje
-            console.log({payload})
+            state.errorMensaje = null
+           // console.log({payload})
         },
         verificandoCredentials: ( state ) => {
             state.status = 'verificando-login'

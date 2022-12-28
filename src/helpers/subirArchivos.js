@@ -5,7 +5,7 @@
 export const subirArchivos = async (file) => {
 
 
-
+    if (!file) return null;
 
 
     const cloudUrl = "https://api.cloudinary.com/v1_1/sorido0/image/upload";
@@ -23,7 +23,7 @@ export const subirArchivos = async (file) => {
     
     try {
         
-        console.log(formData);
+        //console.log(formData);
         const resp = await fetch(cloudUrl, {
             method: 'POST',
             body: formData,
@@ -33,7 +33,8 @@ export const subirArchivos = async (file) => {
 
        // console.log(resp)
 
-        if (!resp.ok) return new Error('No se pudo subir el archivo');
+        // if (!resp.ok) return new Error('No se pudo subir el archivo');
+        if (!resp.ok) return null;
 
         const cloudResp = await resp.json();
         //console.log({ cloudResp })
@@ -41,8 +42,9 @@ export const subirArchivos = async (file) => {
         return cloudResp.secure_url;
 
     } catch (error) {
-        console.log(error);
-        throw new Error(error.message);
+       // console.log(error);
+        // throw new Error(error.message);
+        return null;
     }
 
 }
